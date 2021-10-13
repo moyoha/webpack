@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
 
 module.exports = {
   mode:'development', // 开发模式
@@ -22,6 +24,7 @@ module.exports = {
       template: path.resolve(__dirname,'../public/share.html'),
       filename: 'share.html',
       chunks: ['share']
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 }
