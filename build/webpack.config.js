@@ -31,15 +31,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"] // 从右向左开始解析
+        use: ["style-loader", "css-loader", "postcss-loader"] // 从右向左开始解析
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"] // 此外还需要安装node-sass(sass也行)
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"] // 此外还需要安装node-sass(sass也行)
       },
       {
         test:/\.less$/,
-        use:['style-loader','css-loader','less-loader'] // 此外还需要安装less模块
+        use:['style-loader','css-loader', "postcss-loader", 'less-loader'] // 此外还需要安装less模块
       }
     ]
   }
