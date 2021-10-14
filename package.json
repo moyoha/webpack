@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/moyoha/pack#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
+    "core-js": "^3.18.3",
     "css-loader": "^6.4.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
@@ -40,5 +44,6 @@
     "> 1%",
     "iOS 7",
     "last 3 iOS versions"
-  ]
+  ],
+  "dependencies": {}
 }
