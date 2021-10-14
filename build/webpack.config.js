@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode:'development', // 开发模式
@@ -25,21 +25,24 @@ module.exports = {
       filename: 'share.html',
       chunks: ['share']
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[hash].css",
+    })
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"] // 从右向左开始解析
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"] // 从右向左开始解析
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"] // 此外还需要安装node-sass(sass也行)
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"] // 此外还需要安装node-sass(sass也行)
       },
       {
         test:/\.less$/,
-        use:['style-loader','css-loader', "postcss-loader", 'less-loader'] // 此外还需要安装less模块
+        use:[MiniCssExtractPlugin.loader,'css-loader', "postcss-loader", 'less-loader'] // 此外还需要安装less模块
       }
     ]
   }
