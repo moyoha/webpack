@@ -43,6 +43,17 @@ module.exports = {
       {
         test:/\.less$/,
         use:[MiniCssExtractPlugin.loader,'css-loader', "postcss-loader", 'less-loader'] // 此外还需要安装less模块
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        type: "asset",
+        generator: {
+          filename: 'static/[name].[hash].[ext]'
+        }
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader"
       }
     ]
   }
