@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 
 module.exports = {
@@ -11,7 +10,8 @@ module.exports = {
   },
   output: {
       filename: '[name].[hash:8].js', // [name] 指entry属性名字, 默认为main
-      path: path.resolve(__dirname,'../dist') // 打包后的目录
+      path: path.resolve(__dirname,'../dist'), // 打包后的目录
+      clean: true
   },
   plugins:[
     new HtmlWebpackPlugin({
@@ -24,7 +24,6 @@ module.exports = {
       template: path.resolve(__dirname,'../public/share.html'),
       filename: 'share.html',
       chunks: ['share']
-    }),
-    new CleanWebpackPlugin()
+    })
   ]
 }
