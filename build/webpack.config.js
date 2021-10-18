@@ -6,7 +6,6 @@ const vueLoaderPlugin = require('vue-loader/lib/plugin')
 const Webpack = require('webpack')
 
 module.exports = {
-  mode: 'development', // 开发模式
   entry: {
     main: path.resolve(__dirname, '../src/main.js'),
     share: path.resolve(__dirname, '../src/share.js')
@@ -103,9 +102,5 @@ module.exports = {
     // 尝试按顺序解析这些后缀名。
     // 如果有多个文件有相同的名字，但后缀名不同，webpack 会解析列在数组首位的后缀的文件 并跳过其余的后缀。
     extensions:['*','.js','.json','.vue']
-  },
-  devServer:{
-    port:3000,
-    hot:true
   },
 }
